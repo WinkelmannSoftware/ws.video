@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WS.Video installieren – Anleitung</title>
+<meta name="description" content="Schritt-für-Schritt-Anleitung: WS.Video als AppImage auf Ubuntu, Linux Mint, Debian, Fedora, Rocky Linux und Arch installieren, unter Omarchy einrichten, Fehlerbericht erstellen und wieder entfernen.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="stil.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="marke" href="index.html"><img src="logo.svg" alt="">Winkelmann.Software <small>WS.Video</small></a>
+    <nav>
+      <a href="index.html#funktionen">Funktionen</a>
+      <a href="index.html#bilder">Bilder</a>
+      <a href="anleitung.html">Anleitung</a>
+      <a href="index.html#quelltext">Quelltext</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div style="padding-top:56px">
+    <span class="etikett">Anleitung · Version 0.9.0</span>
+    <h1 style="font-size:clamp(2rem,4vw,2.8rem)">WS.Video <span>installieren</span></h1>
+    <p class="unter" style="margin:0">Von der Datei bis zur ersten Aufnahme. Wähle dein System, folge den Schritten, fertig. Du brauchst etwa fünf Minuten.</p>
+  </div>
+
+  <div class="anl">
+    <aside>
+      <a href="#welches">1. Welcher Weg?</a>
+      <a href="#appimage">2. AppImage</a>
+      <a href="#arch">3. Arch und Omarchy</a>
+      <a href="#einrichten">4. Einrichten</a>
+      <a href="#aktualisieren">5. Aktualisieren</a>
+      <a href="#fehler">6. Wenn es klemmt</a>
+      <a href="#entfernen">7. Entfernen</a>
+    </aside>
+
+    <article>
+      <section id="welches">
+        <h2>1. Welcher Weg passt zu dir?</h2>
+        <div class="tabelle"><table>
+          <tr><th>Dein System</th><th>Empfohlen</th></tr>
+          <tr><td>Ubuntu ab 24.04</td><td>AppImage</td></tr>
+          <tr><td>Linux Mint 22</td><td>AppImage</td></tr>
+          <tr><td>Debian 13</td><td>AppImage</td></tr>
+          <tr><td>Fedora ab 43</td><td>AppImage</td></tr>
+          <tr><td>Rocky Linux 10</td><td>AppImage</td></tr>
+          <tr><td>Arch, Omarchy mit Hyprland</td><td>Paket mit <code>install.sh</code> (AppImage geht auch)</td></tr>
+        </table></div>
+        <p>Nicht sicher, welches System du hast? Im Terminal zeigt es dieser Befehl:</p>
+<pre><code>grep PRETTY_NAME /etc/os-release</code></pre>
+        <p>WS.Video braucht einen 64-Bit-Rechner mit Intel- oder AMD-Prozessor (x86_64).</p>
+      </section>
+
+      <section id="appimage">
+        <h2>2. AppImage: Ubuntu, Mint, Debian, Fedora, Rocky</h2>
+        <p>Ein AppImage ist eine einzige Datei, die alles mitbringt. Es wird nichts ins System installiert, und du brauchst kein Administratorpasswort.</p>
+
+        <h3>Schritt 1: Herunterladen</h3>
+        <p>Öffne die <a href="https://github.com/winkelmannsoftware/ws.video/releases/latest">Release-Seite</a> und lade <b>WS.Video-0.9.0-x86_64.AppImage</b> herunter (etwa 105 MB). Die Datei landet normalerweise im Ordner <b>Downloads</b>.</p>
+        <p>Tipp: Leg die Datei an einen festen Platz, zum Beispiel einen Ordner <code>~/Programme</code>. Der Eintrag im Startmenü zeigt später auf genau diese Stelle.</p>
+
+        <h3>Schritt 2: Ausführbar machen</h3>
+        <p>Wähle deine Oberfläche:</p>
+        <div class="reiter" role="tablist">
+          <button role="tab" aria-selected="true" data-feld="f-gnome">Ubuntu, Debian, Fedora, Rocky (GNOME)</button>
+          <button role="tab" aria-selected="false" data-feld="f-mint">Linux Mint (Cinnamon)</button>
+          <button role="tab" aria-selected="false" data-feld="f-kde">KDE Plasma</button>
+          <button role="tab" aria-selected="false" data-feld="f-term">Terminal</button>
+        </div>
+        <div class="feld an" id="f-gnome">
+          <ol>
+            <li>Dateien öffnen und in den Ordner <b>Downloads</b> gehen.</li>
+            <li>Rechtsklick auf <b>WS.Video-0.9.0-x86_64.AppImage</b>, dann <b>Eigenschaften</b>.</li>
+            <li>Den Schalter <b>Als Programm ausführbar</b> einschalten und das Fenster schließen.</li>
+          </ol>
+        </div>
+        <div class="feld" id="f-mint">
+          <ol>
+            <li>Dateimanager Nemo öffnen und in den Ordner <b>Downloads</b> gehen.</li>
+            <li>Rechtsklick auf die Datei, dann <b>Eigenschaften</b> und den Reiter <b>Zugriffsrechte</b>.</li>
+            <li>Haken bei <b>Datei als Programm ausführen</b> setzen.</li>
+          </ol>
+        </div>
+        <div class="feld" id="f-kde">
+          <ol>
+            <li>Dolphin öffnen und in den Ordner <b>Downloads</b> gehen.</li>
+            <li>Rechtsklick auf die Datei, dann <b>Eigenschaften</b> und den Reiter <b>Berechtigungen</b>.</li>
+            <li>Haken bei <b>Ausführbar</b> setzen und mit OK bestätigen.</li>
+          </ol>
+        </div>
+        <div class="feld" id="f-term">
+<pre><code>cd ~/Downloads
+chmod +x WS.Video-0.9.0-x86_64.AppImage</code></pre>
+        </div>
+
+        <h3>Schritt 3: Starten</h3>
+        <p>Doppelklick auf die Datei. Oder im Terminal:</p>
+<pre><code>~/Downloads/WS.Video-0.9.0-x86_64.AppImage</code></pre>
+        <p>Beim ersten Start fragt WS.Video, ob es sich ins <b>Startmenü</b> eintragen soll. Sag ja: Dann findest du WS.Video bei deinen anderen Programmen, Projekte öffnen sich per Doppelklick, und im Terminal gibt es den Befehl <code>ws-video</code>.</p>
+        <p>Den Eintrag kannst du jederzeit nachholen oder wieder entfernen:</p>
+<pre><code>~/Downloads/WS.Video-0.9.0-x86_64.AppImage --startmenue
+~/Downloads/WS.Video-0.9.0-x86_64.AppImage --startmenue-entfernen</code></pre>
+
+        <h3>Was auf deinem System schon geht</h3>
+        <div class="tabelle"><table>
+          <tr><th>System</th><th>Schnitt, Effekte, Ton, Export</th><th>Aufnahme</th><th>Mauszeiger-Effekte</th></tr>
+          <tr><td>Arch mit Hyprland</td><td>ja</td><td>ja</td><td>ja</td></tr>
+          <tr><td>Ubuntu, Debian, Fedora, Rocky 10<br>(GNOME, KDE mit Wayland)</td><td>ja</td><td>ja, Zeiger fest im Bild</td><td>in Arbeit</td></tr>
+          <tr><td>Linux Mint (Cinnamon, X11)</td><td>ja</td><td>in Arbeit</td><td>in Arbeit</td></tr>
+        </table></div>
+        <p>Bei der Aufnahme unter GNOME und KDE fragt das System beim Start, welchen Bildschirm oder welches Fenster WS.Video aufnehmen darf. Das ist normal und dient deinem Schutz.</p>
+      </section>
+
+      <section id="arch">
+        <h2>3. Arch und Omarchy mit Hyprland</h2>
+        <p>Hier läuft WS.Video mit allen Funktionen. Das Paket nutzt die Bibliotheken deines Systems und installiert fehlende Pakete selbst mit pacman.</p>
+        <h3>Schritt 1: Herunterladen und entpacken</h3>
+        <p>Lade <b>ws-video-0.9.0.tar.gz</b> von der <a href="https://github.com/winkelmannsoftware/ws.video/releases/latest">Release-Seite</a> und führe im Terminal aus:</p>
+<pre><code>cd ~/Downloads
+tar xzf ws-video-0.9.0.tar.gz
+cd ws-video-0.9.0
+./install.sh</code></pre>
+        <p>Das Skript fragt einmal nach deinem Passwort (für pacman), entfernt eine eventuell vorhandene alte Version und legt das Programm nach <code>~/.local/bin/ws-video</code>. Deine Aufnahmen und Projekte bleiben dabei erhalten.</p>
+        <p>Startet das mitgelieferte Programm auf deinem Rechner nicht, baut das Skript es automatisch aus dem Quelltext. Das dauert einige Minuten. Erzwingen lässt es sich mit <code>./install.sh --bauen</code>.</p>
+        <h3>Schritt 2: Starten</h3>
+        <p>Über den App-Starter (bei Omarchy <b>SUPER + Leertaste</b>, dann „WS.Video“ tippen) oder im Terminal mit <code>ws-video</code>.</p>
+      </section>
+
+      <section id="einrichten">
+        <h2>4. Einmal einrichten (Hyprland)</h2>
+        <p>Diese Schritte sind freiwillig, machen die Arbeit aber deutlich angenehmer.</p>
+        <h3>Mausklicks aufzeichnen</h3>
+        <p>Für die Klick-Ringe im Video muss WS.Video die Maustasten lesen dürfen:</p>
+<pre><code>sudo usermod -aG input $USER</code></pre>
+        <p>Danach einmal ab- und wieder anmelden. Die Mausposition wird unter Hyprland auch ohne diesen Schritt aufgezeichnet.</p>
+        <h3>Tastenkürzel für die Aufnahme</h3>
+<pre><code>ws-video --kuerzel-einrichten</code></pre>
+        <p>Der Befehl sucht zwei freie Tasten, sichert deine Hyprland-Einstellungen und trägt die Kürzel ein. Normalerweise sind das:</p>
+        <div class="tabelle"><table>
+          <tr><th>Taste</th><th>Wirkung</th></tr>
+          <tr><td>SUPER + ALT + R</td><td>Aufnahme starten, nochmal drücken beendet sie</td></tr>
+          <tr><td>SUPER + ALT + P</td><td>Pause und Fortsetzen</td></tr>
+        </table></div>
+        <p><code>ws-video --kuerzel</code> zeigt die Zeilen nur an, <code>ws-video --kuerzel-entfernen</code> nimmt sie wieder heraus.</p>
+      </section>
+
+      <section id="aktualisieren">
+        <h2>5. Auf eine neue Version aktualisieren</h2>
+        <p><b>AppImage:</b> Neue Datei herunterladen, ausführbar machen, die alte Datei löschen und einmal <code>--startmenue</code> mit der neuen Datei ausführen, damit das Startmenü auf sie zeigt.</p>
+        <p><b>Arch und Omarchy:</b> Neues Paket entpacken und <code>./install.sh</code> ausführen. Die alte Version wird dabei ersetzt.</p>
+        <p>Projekte, Aufnahmen und Einstellungen bleiben in beiden Fällen erhalten.</p>
+      </section>
+
+      <section id="fehler">
+        <h2>6. Wenn es klemmt</h2>
+        <h3>Das AppImage startet per Doppelklick nicht</h3>
+        <p>Meist fehlt das Werkzeug <code>fusermount</code>. Starte es dann aus dem Terminal, so siehst du auch die Fehlermeldung:</p>
+<pre><code>~/Downloads/WS.Video-0.9.0-x86_64.AppImage --appimage-extract-and-run</code></pre>
+        <p>Oder installiere FUSE einmal nach:</p>
+        <div class="tabelle"><table>
+          <tr><th>System</th><th>Befehl</th></tr>
+          <tr><td>Ubuntu, Mint, Debian</td><td><code>sudo apt install fuse3</code></td></tr>
+          <tr><td>Fedora, Rocky</td><td><code>sudo dnf install fuse3</code></td></tr>
+          <tr><td>Arch</td><td><code>sudo pacman -S fuse3</code></td></tr>
+        </table></div>
+        <h3>Doppelklick öffnet nur einen Texteditor oder nichts</h3>
+        <p>Die Datei ist noch nicht ausführbar. Schritt 2 im Abschnitt <a href="#appimage">AppImage</a> wiederholen.</p>
+        <h3>Die Grafikkarte kodiert den Export nicht</h3>
+        <p>WS.Video wiederholt den Export dann automatisch auf dem Prozessor. Für schnelleres Kodieren auf Intel- und AMD-Grafik helfen die VA-API-Treiber deines Systems (zum Beispiel <code>intel-media-driver</code> oder <code>mesa-va-drivers</code>).</p>
+        <h3>Fehlerbericht erstellen</h3>
+<pre><code>ws-video --fehlerbericht</code></pre>
+        <p>Ohne Startmenü-Eintrag: <code>~/Downloads/WS.Video-0.9.0-x86_64.AppImage --fehlerbericht</code></p>
+        <p>Der Befehl legt <code>ws-video-fehlerbericht.txt</code> in deinen Ordner Downloads. Darin stehen Version, Angaben zu System und Hardware, die Aufnahme-Umgebung und die Programmprotokolle. Benutzer- und Rechnername werden ersetzt, Inhalte deiner Aufnahmen sind nicht enthalten, und es wird nichts automatisch verschickt. Nach einem Absturz bietet WS.Video den Bericht beim nächsten Start von selbst an.</p>
+        <p>Hänge die Datei an ein <a href="https://github.com/winkelmannsoftware/ws.video/issues">Issue auf GitHub</a> an und beschreibe kurz, was du gerade gemacht hast.</p>
+      </section>
+
+      <section id="entfernen">
+        <h2>7. WS.Video entfernen</h2>
+        <p><b>AppImage:</b> Erst den Startmenü-Eintrag entfernen, dann die Datei löschen:</p>
+<pre><code>~/Downloads/WS.Video-0.9.0-x86_64.AppImage --startmenue-entfernen
+rm ~/Downloads/WS.Video-0.9.0-x86_64.AppImage</code></pre>
+        <p><b>Arch und Omarchy:</b> Im entpackten Ordner:</p>
+<pre><code>./uninstall.sh          # Programm entfernen
+./uninstall.sh --alles  # dazu auch die Einstellungen</code></pre>
+        <div class="warn">Deine Aufnahmen und Projekte in <code>~/Videos/WS.Video/</code> werden in keinem Fall gelöscht. Die entfernst du bei Bedarf selbst.</div>
+      </section>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 <a href="https://winkelmann.software">Winkelmann.Software</a> · WS.Video ist freie Software (GPL-3.0)</span>
+    <a href="index.html">Zur Startseite</a>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.reiter button').forEach(b=>b.addEventListener('click',()=>{
+  b.parentElement.querySelectorAll('button').forEach(x=>x.setAttribute('aria-selected',x===b));
+  document.querySelectorAll('.feld').forEach(f=>f.classList.toggle('an',f.id===b.dataset.feld));
+}));
+</script>
+</body>
+</html>

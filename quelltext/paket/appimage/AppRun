@@ -1,0 +1,39 @@
+#!/bin/sh
+# WS.Video – Start aus dem AppImage. Mitgebrachte Bibliotheken finden sich über ihren eigenen Suchpfad,
+# deshalb bleibt die Umgebung für gestartete Hilfsprogramme des Systems sauber.
+HERE="$(dirname "$(readlink -f "$0")")"
+L="$HERE/usr/lib"
+export APPDIR="$HERE"
+
+# Bibliotheken, die eng am System hängen (Grafik, Fenster, Schrift, Ton), nimmt WS.Video vom System.
+# Nur was dort fehlt, kommt aus dem Paket.
+HAVE="$(PATH="$PATH:/sbin:/usr/sbin" ldconfig -p 2>/dev/null)"
+EXTRA=""
+for d in "$L"/reserve/*; do
+  [ -d "$d" ] || continue
+  n="$(basename "$d")"
+  case "$HAVE" in *"$n "*) ;; *) EXTRA="$EXTRA:$d" ;; esac
+done
+if [ -n "$EXTRA" ]; then
+  export LD_LIBRARY_PATH="${EXTRA#:}${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+  export WS_RESERVE="$(echo "${EXTRA#:}" | tr ':' '\n' | xargs -n1 basename | tr '\n' ' ')"
+fi
+
+CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/ws-video"
+mkdir -p "$CACHE" 2>/dev/null
+unset GST_PLUGIN_PATH GST_PLUGIN_PATH_1_0 GST_PLUGIN_SYSTEM_PATH
+export GST_PLUGIN_SYSTEM_PATH_1_0="$L/gstreamer-1.0"
+export GST_PLUGIN_SCANNER_1_0="$HERE/usr/libexec/gst-plugin-scanner"
+export GST_PLUGIN_SCANNER="$GST_PLUGIN_SCANNER_1_0"
+export GST_REGISTRY_1_0="$CACHE/gstreamer-appimage.bin"
+export PIPEWIRE_MODULE_DIR="$L/pipewire-0.3"
+export SPA_PLUGIN_DIR="$L/spa-0.2"
+export GSETTINGS_SCHEMA_DIR="$HERE/usr/share/glib-2.0/schemas"
+export GIO_MODULE_DIR="$L/gio-modules"
+export XDG_DATA_DIRS="$HERE/usr/share:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
+export WS_FONT_DIR="$HERE/usr/share/fonts"
+# Bildlader (SVG für Symbole): die Liste braucht volle Pfade, die sich bei jedem Start ändern
+if sed "s|@L@|$L|g" "$L/gdk-pixbuf-loaders/loaders.cache.in" > "$CACHE/bildlader.cache" 2>/dev/null; then
+  export GDK_PIXBUF_MODULE_FILE="$CACHE/bildlader.cache"
+fi
+exec "$HERE/usr/bin/ws-video" "$@"

@@ -1,0 +1,22 @@
+WS.Video – Bildschirm aufnehmen und Videos bearbeiten
+Copyright (C) 2026 Winkelmann.Software
+
+Dieses Programm ist freie Software. Du darfst es unter den Bedingungen der
+GNU General Public License, wie von der Free Software Foundation veröffentlicht,
+weitergeben und/oder verändern, entweder gemäß Version 3 der Lizenz oder
+(nach deiner Wahl) jeder späteren Version.
+
+Dieses Programm wird in der Hoffnung verbreitet, dass es nützlich ist, aber
+OHNE JEDE GEWÄHRLEISTUNG, auch ohne die stillschweigende Gewährleistung der
+MARKTGÄNGIGKEIT oder der EIGNUNG FÜR EINEN BESTIMMTEN ZWECK. Einzelheiten
+stehen in der GNU General Public License.
+
+Der vollständige Lizenztext liegt bei (GPL-3.txt) und steht unter
+https://www.gnu.org/licenses/gpl-3.0.html.
+
+Der Name „WS.Video“, der Name „Winkelmann.Software“ und das Logo sind nicht
+Teil dieser Lizenz. Veränderte Fassungen müssen unter anderem Namen und mit
+anderem Logo weitergegeben werden.
+
+Der Quelltext liegt jeder Veröffentlichung bei (Ordner quelltext im Paket
+ws-video-<Version>.tar.gz).

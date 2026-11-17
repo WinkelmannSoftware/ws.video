@@ -7,9 +7,9 @@ Bildschirm, Kamera, Mikrofon und Systemton werden getrennt aufgenommen und lande
 Schnitt, Übergänge, Animationen, Zoom auf den Mauszeiger, Klick-Ringe, Tonverbesserung per Klick und
 Export bis 4K (H.264, HEVC, AV1, auch auf der Grafikkarte).
 
-**Webseite:** https://winkelmannsoftware.github.io/ws.video/ · **Anleitung:** https://winkelmannsoftware.github.io/ws.video/anleitung.html · **Download:** [Releases](../../releases/latest)
+**Download:** [Releases](../../releases/latest) · **Installationsanleitung:** [ANLEITUNG.md](ANLEITUNG.md) · **Webseite und Service:** [winkelmann.software](https://winkelmann.software)
 
-![Editor](docs/bilder/editor-animation.png)
+![Editor](bilder/editor-animation.png)
 
 ## Installieren
 
@@ -25,7 +25,7 @@ chmod +x WS.Video-0.9.0-x86_64.AppImage
 Repository heraus baut `./install.sh` das Programm aus dem Quelltext (Rust, braucht `cargo`).
 Das AppImage baut `quelltext/paket/appimage/bauen.py`.
 
-Die ausführliche Anleitung mit allen Funktionen und Änderungen steht in [LIESMICH.md](LIESMICH.md).
+Schritt für Schritt für jedes System: [ANLEITUNG.md](ANLEITUNG.md). Alle Funktionen und Änderungen: [LIESMICH.md](LIESMICH.md).
 
 ## Aufbau
 
@@ -34,7 +34,7 @@ Die ausführliche Anleitung mit allen Funktionen und Änderungen steht in [LIESM
 | `quelltext/` | Rust-Quelltext (GTK 4, GStreamer, GStreamer Editing Services) |
 | `themen/` | Beispiel für ein eigenes Design |
 | `vorlagen/` | Bildvorlagen |
-| `docs/` | diese Webseite (GitHub Pages) |
+| `bilder/` | Bildschirmfotos |
 | `install.sh`, `uninstall.sh` | Installieren und Entfernen |
 
 ## Fehler melden
